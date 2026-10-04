@@ -1,0 +1,34 @@
+GALERIA C ALVES CERON CONSTRUÇÕES — INSTRUÇÕES
+
+ARQUIVOS
+- galeria.html: página pública de fotos com filtros.
+- admin-galeria.html: painel para cadastrar, editar e excluir obras/fotos.
+- firebase-config.js: configuração do aplicativo web Firebase.
+- firestore.rules: regras de acesso aos dados.
+- storage.rules: regras de acesso aos arquivos de imagem.
+
+IMPORTANTE
+O GitHub Pages hospeda arquivos estáticos; ele sozinho não fornece login seguro nem armazenamento de fotos. Este projeto usa Firebase Authentication, Cloud Firestore e Firebase Storage. Não funcionará até o Firebase ser configurado.
+
+PASSO A PASSO
+1. No Firebase Console, crie ou abra seu projeto.
+2. Em Authentication > Sign-in method, habilite E-mail/Senha.
+3. Em Authentication > Users, adicione o e-mail do administrador e defina uma senha forte.
+4. Em Configurações do projeto, registre um aplicativo Web e copie a configuração para firebase-config.js.
+5. Em Firestore Database, crie o banco de dados.
+6. Em Storage, habilite o armazenamento de arquivos.
+7. Em firestore.rules, substitua COLOQUE-SEU-EMAIL-ADMINISTRADOR pelo e-mail exato do administrador. Publique as regras.
+8. Faça o mesmo em storage.rules e publique as regras do Storage.
+9. Envie galeria.html, admin-galeria.html, firebase-config.js e as imagens/logotipo para o mesmo repositório GitHub Pages.
+10. Acesse admin-galeria.html, entre com a conta autorizada e cadastre uma obra.
+
+LINKS
+- Galeria pública: https://SEU-USUARIO.github.io/SEU-REPOSITORIO/galeria.html
+- Painel: https://SEU-USUARIO.github.io/SEU-REPOSITORIO/admin-galeria.html
+
+CUIDADOS
+- As regras acima limitam gravações ao e-mail de administrador configurado.
+- A galeria pública mostra somente obras com "publicada" igual a true.
+- Use apenas fotos autorizadas para divulgação.
+- Não compartilhe a senha administrativa nem publique arquivos com credenciais privadas.
+- Se o bucket do seu projeto usar outro nome/formato, copie exatamente o valor fornecido pela configuração Firebase.

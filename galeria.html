@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#020617">
+  <title>Galeria de Obras | C Alves Ceron Construções</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body{background:#020617;color:#f8fafc;font-family:Inter,system-ui,sans-serif}
+    .gold{color:#fbbf24}.bg-gold{background:#fbbf24;color:#020617}
+    .photo{aspect-ratio:4/3;object-fit:cover;width:100%;background:#0f172a}
+  </style>
+</head>
+<body>
+<header class="sticky top-0 z-20 border-b border-slate-800 bg-slate-950/95 backdrop-blur">
+  <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4">
+    <a href="./index.html" class="flex items-center gap-3">
+      <img src="Logo%20CA%20Constru%C3%A7%C3%B5es.png" alt="Logo C Alves Ceron" class="h-12 w-12 rounded-xl object-cover" onerror="this.style.display='none'">
+      <span class="font-black tracking-tight">C ALVES CERON <small class="block text-xs font-semibold gold">CONSTRUÇÕES & FUNDAÇÕES</small></span>
+    </a>
+    <nav class="flex flex-wrap items-center gap-4 text-sm">
+      <a href="./index.html#inicio" class="hover:text-amber-400">Início</a>
+      <a href="./index.html#servicos" class="hover:text-amber-400">Serviços</a>
+      <a href="./galeria.html" class="gold font-bold">Galeria de Obras</a>
+      <a href="./index.html#contato" class="hover:text-amber-400">Contato</a>
+      <a href="./index.html#orcamento" class="rounded-xl bg-gold px-4 py-2 font-bold">Solicitar orçamento</a>
+    </nav>
+  </div>
+</header>
+<section class="border-b border-slate-800 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-950">
+  <div class="mx-auto max-w-7xl px-4 py-14">
+    <p class="mb-3 text-sm font-bold uppercase tracking-widest gold">Nosso trabalho em imagens</p>
+    <h1 class="text-4xl font-black sm:text-5xl">Galeria de Obras</h1>
+    <p class="mt-4 max-w-2xl text-slate-300">Conheça projetos, etapas e serviços realizados pela C Alves Ceron Construções.</p>
+  </div>
+</section>
+<main class="mx-auto max-w-7xl px-4 py-10">
+  <div class="mb-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+    <input id="search" class="rounded-xl border border-slate-700 bg-slate-900 px-4 py-3" placeholder="Buscar cliente, obra ou cidade…">
+    <select id="category" class="rounded-xl border border-slate-700 bg-slate-900 px-4 py-3"><option value="">Todos os serviços</option><option>Casas</option><option>Prédios Residenciais</option><option>Prédios Comerciais</option><option>Fundações / Brocas</option><option>Obras em Geral</option></select>
+    <select id="city" class="rounded-xl border border-slate-700 bg-slate-900 px-4 py-3"><option value="">Todas as cidades</option></select>
+    <button id="reset" class="rounded-xl border border-slate-600 px-4 py-3 font-bold hover:border-amber-400">Limpar filtros</button>
+  </div>
+  <p id="status" class="mb-6 text-sm text-slate-400">Carregando obras…</p>
+  <div id="gallery" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+</main>
+<footer class="mt-12 border-t border-slate-800 bg-slate-950">
+  <div class="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-8 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between">
+    <span>© 2026 C Alves Ceron Construções. Todos os direitos reservados.</span>
+    <span>São João do Ivaí – Paraná · <a class="gold" href="./index.html#orcamento">Solicite um orçamento</a></span>
+  </div>
+</footer>
+<div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 p-4" role="dialog" aria-modal="true">
+  <button id="closeLightbox" class="absolute right-5 top-4 rounded-lg bg-white/10 px-4 py-2 text-2xl" aria-label="Fechar">×</button>
+  <div class="max-w-5xl"><img id="lightboxImg" class="max-h-[75vh] w-full rounded-xl object-contain" alt=""><h2 id="lightboxTitle" class="mt-4 text-xl font-bold"></h2><p id="lightboxDesc" class="mt-2 text-slate-300"></p></div>
+</div>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { firebaseConfig } from "./firebase-config.js";
+
+const gallery = document.querySelector("#gallery");
+const status = document.querySelector("#status");
+const search = document.querySelector("#search");
+const category = document.querySelector("#category");
+const city = document.querySelector("#city");
+let works = [];
+let app;
+try {
+  if (!firebaseConfig.apiKey || firebaseConfig.apiKey === "COLE_SUA_API_KEY") throw new Error("config");
+  app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const snap = await getDocs(query(collection(db, "obras"), where("publicada", "==", true)));
+  works = snap.docs.map(d => ({id:d.id, ...d.data()}));
+  const cities = [...new Set(works.map(w => w.cidade).filter(Boolean))].sort();
+  cities.forEach(c => { const o=document.createElement("option"); o.value=c; o.textContent=c; city.append(o); });
+  render();
+} catch (e) {
+  status.textContent = "A galeria ainda não está conectada ao Firebase ou não há obras publicadas. Configure firebase-config.js e publique as primeiras obras pelo painel administrativo.";
+}
+function render(){
+  const q=search.value.trim().toLocaleLowerCase("pt-BR");
+  const filtered=works.filter(w => {
+    const text=[w.cliente,w.titulo,w.cidade,w.descricao,w.categoria].join(" ").toLocaleLowerCase("pt-BR");
+    return (!q || text.includes(q)) && (!category.value || w.categoria===category.value) && (!city.value || w.cidade===city.value);
+  });
+  gallery.innerHTML="";
+  status.textContent=filtered.length ? `${filtered.length} obra(s) encontrada(s)` : "Nenhuma obra corresponde aos filtros.";
+  filtered.forEach(w=>{
+    const card=document.createElement("article");
+    card.className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 shadow-lg";
+    const photos=Array.isArray(w.fotos)?w.fotos:[];
+    const cover=photos.find(p=>p.url) || {};
+    card.innerHTML=`<button class="block w-full text-left" aria-label="Ampliar foto"><img class="photo" src="${esc(cover.url||"")}" alt="${esc(cover.legenda||w.titulo||"Foto da obra")}" loading="lazy"></button>
+      <div class="p-5"><div class="mb-3 flex flex-wrap gap-2"><span class="rounded-full bg-amber-400/15 px-3 py-1 text-xs font-bold text-amber-300">${esc(w.categoria||"Obra")}</span><span class="rounded-full bg-slate-800 px-3 py-1 text-xs text-slate-300">${esc(w.cidade||"")}</span></div>
+      <h2 class="text-xl font-extrabold">${esc(w.titulo||"Obra")}</h2><p class="mt-1 text-sm text-slate-400">${esc(w.cliente||"")}</p><p class="mt-3 text-sm leading-relaxed text-slate-300">${esc(w.descricao||"")}</p>
+      <div class="mt-4 flex flex-wrap gap-2">${photos.map((p,i)=>`<button class="thumb overflow-hidden rounded-lg border border-slate-700" data-photo="${i}" title="${esc(p.legenda||"Ver foto")}"><img src="${esc(p.url||"")}" alt="${esc(p.legenda||"Foto")}" class="h-16 w-20 object-cover" loading="lazy"></button>`).join("")}</div></div>`;
+    const open=(i)=>{const p=photos[i]||cover;document.querySelector("#lightboxImg").src=p.url||"";document.querySelector("#lightboxImg").alt=p.legenda||w.titulo||"";document.querySelector("#lightboxTitle").textContent=w.titulo||"";document.querySelector("#lightboxDesc").textContent=p.legenda||w.descricao||"";document.querySelector("#lightbox").classList.remove("hidden");document.querySelector("#lightbox").classList.add("flex");};
+    card.querySelector("button").addEventListener("click",()=>open(0));
+    card.querySelectorAll("[data-photo]").forEach(b=>b.addEventListener("click",()=>open(Number(b.dataset.photo))));
+    gallery.append(card);
+  });
+}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+[search,category,city].forEach(el=>el.addEventListener("input",render));
+document.querySelector("#reset").addEventListener("click",()=>{search.value="";category.value="";city.value="";render();});
+document.querySelector("#closeLightbox").addEventListener("click",closeBox);
+document.querySelector("#lightbox").addEventListener("click",e=>{if(e.target.id==="lightbox")closeBox();});
+function closeBox(){const x=document.querySelector("#lightbox");x.classList.add("hidden");x.classList.remove("flex");}
+</script>
+</body>
+</html>
