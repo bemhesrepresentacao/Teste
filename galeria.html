@@ -28,7 +28,23 @@
                 <a href="index.htm#orcamento" class="hover:text-amber-400 transition-colors">Orçamento Online</a>
                 <a href="index.htm#contato" class="hover:text-amber-400 transition-colors">Contato</a>
             </nav>
-    <!-- Mobile Menu Drawer -->
+
+            <div class="hidden md:flex items-center gap-4">
+                <button onclick="openAdminModal()" class="bg-slate-800 hover:bg-slate-700 text-amber-400 border border-amber-500/30 px-4 py-2.5 rounded-xl font-semibold text-xs flex items-center gap-2 transition-all">
+                    <i class="fa-solid fa-lock"></i> Painel Admin
+                </button>
+                <a href="https://wa.me/5543999095741?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20mais%20informações." target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-2.5 rounded-xl font-semibold text-sm flex items-center gap-2 shadow-lg shadow-emerald-600/25 transition-all">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> (43) 9 9909-5741
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-slate-300 hover:text-white focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
         <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 py-5 space-y-4 shadow-2xl">
             <a href="index.htm#inicio" class="block text-base font-medium hover:text-amber-400 transition-colors">Início</a>
             <a href="index.htm#sobre" class="block text-base font-medium hover:text-amber-400 transition-colors">Sobre Nós</a>
@@ -37,6 +53,14 @@
             <a href="index.htm#orcamento" class="block text-base font-medium hover:text-amber-400 transition-colors">Orçamento Online</a>
             <a href="index.htm#contato" class="block text-base font-medium hover:text-amber-400 transition-colors">Contato</a>
             <div class="pt-2 space-y-2">
+                <button onclick="openAdminModal()" class="w-full bg-slate-800 hover:bg-slate-700 text-amber-400 border border-amber-500/30 px-4 py-3 rounded-xl font-semibold text-sm flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-lock"></i> Painel Administrativo
+                </button>
+                <a href="https://wa.me/5543999095741?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20mais%20informações." target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-3 rounded-xl font-semibold text-sm flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp (43) 9 9909-5741
+                </a>
+            </div>
+        </div>
 
   </div>
 </header>
