@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9TH88E5DED"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9TH88E5DED');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Galeria de Fotos | Marcão da Graxa</title>
+    
+    <style>
+        :root {
+            --bg-dark: #070A0F;
+            --card-bg: #0F172A;
+            --blue-accent: #0052D4;
+            --green-accent: #22C55E;
+            --text-light: #F8FAFC;
+            --text-muted: #94A3B8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Header / Navbar */
+        header {
+            background-color: rgba(7, 10, 15, 0.95);
+            padding: 0.8rem 8%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--blue-accent);
+            backdrop-filter: blur(5px);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 55px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--green-accent);
+        }
+
+        /* Conteúdo Principal */
+        .gallery-container {
+            padding: 9rem 8% 5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: var(--green-accent);
+            display: block;
+            margin: 0.5rem auto 2rem;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* Grid de Fotos */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .photo-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            border: 1px solid #1E293B;
+            border-top: 4px solid var(--blue-accent);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--green-accent);
+        }
+
+        .photo-wrapper {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            background-color: #030508;
+            position: relative;
+        }
+
+        .photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .photo-card:hover .photo-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .photo-info {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .photo-title {
+            color: var(--green-accent);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .photo-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #030508;
+            color: var(--text-muted);
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+            border-top: 1px solid #1E293B;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            nav {
+                margin-top: 1rem;
+            }
+
+            nav a {
+                margin: 0 0.5rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+
+    <link rel="icon" type="image/png" href="Marcao%20da%20Graxa%20foto.png">
+    <link rel="shortcut icon" type="image/png" href="Marcao%20da%20Graxa%20foto.png">
+    <link rel="apple-touch-icon" href="Marcao%20da%20Graxa%20foto.png">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="Marcão da Graxa foto.png" alt="Marcão da Graxa foto" class="logo-img">
+            <img src="Marcao da Graxa Nome.png" alt="Marcao da Graxa" class="logo-img">
+        </div>
+        <nav>
+            <a href="index.htm#inicio">Início</a>
+            <a href="index.htm#sobre">Sobre</a>
+            <a href="index.htm#atuacao">Atuação</a>
+            <a href="index.htm#projetos">Produtos</a>
+            <a href="fotos.htm" class="active">Fotos</a>
+            <a href="index.htm#contato">Contato</a>
+        </nav>
+    </header>
+
+    <main class="gallery-container">
+        <h2 class="section-title">Galeria de Fotos</h2>
+        <p class="section-subtitle">Confira os registros de produtos, aplicações e momentos de atuação técnica do Marcão da Graxa.</p>
+
+        <div class="photo-grid">
+            <!-- FOTO 1 -->
+            <div class="photo-card">
+                <div class="photo-wrapper">
+                    <!-- Substitua o atributo src pelo nome exato do arquivo da sua foto -->
+                    <img src="Marcão da Graxa foto.png" alt="Atendimento Técnico Especializado">
+                </div>
+                <div class="photo-info">
+                    <div>
+                        <h3 class="photo-title">Atendimento Técnico Especializado</h3>
+                        <p class="photo-desc">Demonstração de alta performance e suporte direto para operações agrícolas e industriais na região de Maringá-PR.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOTO 2 -->
+            <div class="photo-card">
+                <div class="photo-wrapper">
+                    <img src="Marcao da Graxa Nome.png" alt="Portfólio de Soluções NCH Brasil">
+                </div>
+                <div class="photo-info">
+                    <div>
+                        <h3 class="photo-title">Portfólio de Soluções NCH Brasil</h3>
+                        <p class="photo-desc">Linha completa de lubrificantes, graxas especiais e aditivos voltados para a redução de custos de manutenção.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOTO 3 (Exemplo adicional pronto para novas fotos) -->
+            <div class="photo-card">
+                <div class="photo-wrapper">
+                    <!-- Insira o arquivo da sua imagem aqui -->
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800&auto=format&fit=crop" alt="Aplicação de Graxa Industrial">
+                </div>
+                <div class="photo-info">
+                    <div>
+                        <h3 class="photo-title">Aplicação de Graxa Industrial</h3>
+                        <p class="photo-desc">Equipamentos protegidos com tecnologia avançada contra desgaste severo e umidade.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Bemhes Representação. Parceria • Confiança • Resultados.</p>
+    </footer>
+
+</body>
+
+</html>
