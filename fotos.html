@@ -108,7 +108,7 @@
             font-size: 1.1rem;
         }
 
-        /* Painel de Cadastro de Fotos */
+        /* Painel de Upload do PC */
         .admin-panel {
             background: var(--card-bg);
             border: 1px solid var(--blue-accent);
@@ -126,7 +126,7 @@
 
         .form-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 1rem;
             margin-bottom: 1rem;
         }
@@ -149,6 +149,11 @@
             border-radius: 6px;
             color: var(--text-light);
             font-size: 0.95rem;
+        }
+
+        .form-group input[type="file"] {
+            padding: 0.5rem;
+            cursor: pointer;
         }
 
         .form-group input:focus, .form-group textarea:focus {
@@ -340,31 +345,31 @@
 
     <main class="gallery-container">
         <h2 class="section-title">Galeria de Fotos</h2>
-        <p class="section-subtitle">Cadastre novas fotos e clique em qualquer imagem para ampliá-la.</p>
+        <p class="section-subtitle">Faça o upload de fotos do seu PC, defina um título e clique em qualquer imagem para ampliá-la.</p>
 
-        <!-- Painel para Cadastrar Novas Fotos -->
+        <!-- Painel de Upload do PC -->
         <div class="admin-panel">
-            <h3>➕ Cadastrar Nova Foto</h3>
-            <form id="photoForm" onsubmit="addPhoto(event)">
+            <h3>💻 Enviar Nova Foto do Computador</h3>
+            <form id="uploadForm" onsubmit="uploadPhoto(event)">
                 <div class="form-grid">
                     <div class="form-group">
-                        <label for="photoUrl">Nome do arquivo ou URL da Imagem:</label>
-                        <input type="text" id="photoUrl" placeholder="ex: foto-equipamento.jpg" required>
+                        <label for="imageFile">Selecionar Imagem do PC:</label>
+                        <input type="file" id="imageFile" accept="image/*" required>
                     </div>
                     <div class="form-group">
                         <label for="photoTitle">Título da Foto:</label>
-                        <input type="text" id="photoTitle" placeholder="ex: Manutenção em Campo" required>
+                        <input type="text" id="photoTitle" placeholder="ex: Demonstração de Produto" required>
                     </div>
                 </div>
                 <div class="form-group" style="margin-bottom: 1rem;">
                     <label for="photoDesc">Descrição:</label>
                     <textarea id="photoDesc" rows="2" placeholder="Breve descrição da foto..." required></textarea>
                 </div>
-                <button type="submit" class="btn-cadastrar">Adicionar à Galeria</button>
+                <button type="submit" class="btn-cadastrar">Fazer Upload e Publicar</button>
             </form>
         </div>
 
-        <!-- Grid onde as fotos serão renderizadas -->
+        <!-- Grid de Fotos -->
         <div class="photo-grid" id="photoGrid"></div>
     </main>
 
@@ -382,7 +387,7 @@
     </footer>
 
     <script>
-        // Banco de dados inicial de fotos cadastradas
+        // Banco de dados inicial com as fotos padrão
         let fotos = [
             {
                 url: "Marcão da Graxa foto.png",
@@ -393,20 +398,15 @@
                 url: "Marcao da Graxa Nome.png",
                 titulo: "Portfólio de Soluções NCH Brasil",
                 descricao: "Linha completa de lubrificantes, graxas especiais e aditivos voltados para a redução de custos de manutenção."
-            },
-            {
-                url: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800&auto=format&fit=crop",
-                titulo: "Aplicação de Graxa Industrial",
-                descricao: "Equipamentos protegidos com tecnologia avançada contra desgaste severo e umidade."
             }
         ];
 
-        // Função para renderizar as fotos na tela
+        // Renderizar galeria na tela
         function renderGallery() {
             const grid = document.getElementById('photoGrid');
             grid.innerHTML = '';
 
-            fotos.forEach((foto, index) => {
+            fotos.forEach((foto) => {
                 const cardHTML = `
                     <div class="photo-card">
                         <div class="photo-wrapper" onclick="openModal('${foto.url}', '${foto.titulo.replace(/'/g, "\\'")}')">
@@ -424,22 +424,36 @@
             });
         }
 
-        // Função para cadastrar nova foto pelo formulário
-        function addPhoto(event) {
+        // Função para capturar a foto do computador e enviar para a galeria
+        function uploadPhoto(event) {
             event.preventDefault();
 
-            const url = document.getElementById('photoUrl').value.trim();
+            const fileInput = document.getElementById('imageFile');
             const titulo = document.getElementById('photoTitle').value.trim();
             const descricao = document.getElementById('photoDesc').value.trim();
 
-            if (url && titulo && descricao) {
-                fotos.unshift({ url, titulo, descricao }); // Adiciona no início da lista
-                renderGallery();
-                document.getElementById('photoForm').reset(); // Limpa o formulário
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    const imageUrl = e.target.result; // Converte a imagem do PC em código exibível na página
+                    
+                    // Adiciona a nova foto no topo da lista
+                    fotos.unshift({
+                        url: imageUrl,
+                        titulo: titulo,
+                        descricao: descricao
+                    });
+
+                    renderGallery();
+                    document.getElementById('uploadForm').reset();
+                }
+
+                reader.readAsDataURL(fileInput.files[0]);
             }
         }
 
-        // Funções do Modal de Ampliação
+        // Abrir Modal de Ampliação
         function openModal(url, titulo) {
             const modal = document.getElementById('imageModal');
             const modalImg = document.getElementById('modalImg');
@@ -450,11 +464,12 @@
             modalCaption.innerText = titulo;
         }
 
+        // Fechar Modal
         function closeModal() {
             document.getElementById('imageModal').style.display = 'none';
         }
 
-        // Inicializar a galeria ao carregar a página
+        // Inicializar galeria
         document.addEventListener('DOMContentLoaded', () => {
             renderGallery();
         });
