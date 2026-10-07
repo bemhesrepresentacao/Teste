@@ -108,76 +108,6 @@
             font-size: 1.1rem;
         }
 
-        /* Painel de Upload do PC */
-        .admin-panel {
-            background: var(--card-bg);
-            border: 1px solid var(--blue-accent);
-            padding: 2rem;
-            border-radius: 10px;
-            margin-bottom: 3rem;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-        }
-
-        .admin-panel h3 {
-            color: var(--green-accent);
-            margin-bottom: 1.2rem;
-            font-size: 1.3rem;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 0.3rem;
-        }
-
-        .form-group input, .form-group textarea {
-            background: #070A0F;
-            border: 1px solid #1E293B;
-            padding: 0.7rem;
-            border-radius: 6px;
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        .form-group input[type="file"] {
-            padding: 0.5rem;
-            cursor: pointer;
-        }
-
-        .form-group input:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: var(--green-accent);
-        }
-
-        .btn-cadastrar {
-            background: linear-gradient(90deg, var(--blue-accent), var(--green-accent));
-            color: #fff;
-            padding: 0.7rem 1.8rem;
-            border: none;
-            border-radius: 6px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
-        }
-
-        .btn-cadastrar:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(34, 197, 94, 0.5);
-        }
-
         /* Grid de Fotos */
         .photo-grid {
             display: grid;
@@ -206,8 +136,8 @@
             height: 220px;
             overflow: hidden;
             background-color: #030508;
-            cursor: pointer;
             position: relative;
+            cursor: pointer;
         }
 
         .photo-wrapper img {
@@ -219,6 +149,24 @@
 
         .photo-card:hover .photo-wrapper img {
             transform: scale(1.05);
+        }
+
+        /* Ícone indicativo de zoom ao passar o mouse */
+        .photo-wrapper::after {
+            content: '🔍';
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px 8px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .photo-wrapper:hover::after {
+            opacity: 1;
         }
 
         .photo-info {
@@ -238,9 +186,30 @@
         .photo-desc {
             font-size: 0.9rem;
             color: var(--text-muted);
+            margin-bottom: 1rem;
         }
 
-        /* Modal para Ampliar a Foto (Lightbox) */
+        /* Botão para copiar link */
+        .btn-copy {
+            background: rgba(0, 82, 212, 0.2);
+            color: #38BDF8;
+            border: 1px solid var(--blue-accent);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-copy:hover {
+            background: var(--blue-accent);
+            color: #fff;
+        }
+
+        /* Modal de Ampliação (Lightbox) */
         .modal {
             display: none;
             position: fixed;
@@ -250,39 +219,33 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(6px);
+            backdrop-filter: blur(5px);
             align-items: center;
             justify-content: center;
+            flex-direction: column;
             padding: 2rem;
         }
 
-        .modal-content-container {
-            position: relative;
-            max-width: 900px;
-            width: 100%;
-            text-align: center;
-        }
-
-        .modal-img {
-            max-width: 100%;
+        .modal-content-img {
+            max-width: 90%;
             max-height: 75vh;
             border-radius: 8px;
             border: 2px solid var(--blue-accent);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
             object-fit: contain;
         }
 
         .modal-caption {
-            color: var(--text-light);
             margin-top: 1rem;
-            font-size: 1.2rem;
-            font-weight: 600;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            text-align: center;
         }
 
         .close-modal {
             position: absolute;
-            top: -40px;
-            right: 0;
+            top: 1.5rem;
+            right: 2rem;
             color: var(--text-muted);
             font-size: 2.5rem;
             font-weight: bold;
@@ -345,41 +308,58 @@
 
     <main class="gallery-container">
         <h2 class="section-title">Galeria de Fotos</h2>
-        <p class="section-subtitle">Faça o upload de fotos do seu PC, defina um título e clique em qualquer imagem para ampliá-la.</p>
+        <p class="section-subtitle">Clique em qualquer foto para ampliá-la ou copie o link direto para compartilhar.</p>
 
-        <!-- Painel de Upload do PC -->
-        <div class="admin-panel">
-            <h3>💻 Enviar Nova Foto do Computador</h3>
-            <form id="uploadForm" onsubmit="uploadPhoto(event)">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="imageFile">Selecionar Imagem do PC:</label>
-                        <input type="file" id="imageFile" accept="image/*" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="photoTitle">Título da Foto:</label>
-                        <input type="text" id="photoTitle" placeholder="ex: Demonstração de Produto" required>
-                    </div>
+        <div class="photo-grid">
+            <!-- FOTO 1 -->
+            <div class="photo-card">
+                <div class="photo-wrapper" onclick="openModal('Marcão da Graxa foto.png', 'Atendimento Técnico Especializado')">
+                    <img src="Marcão da Graxa foto.png" alt="Atendimento Técnico Especializado" id="img-1">
                 </div>
-                <div class="form-group" style="margin-bottom: 1rem;">
-                    <label for="photoDesc">Descrição:</label>
-                    <textarea id="photoDesc" rows="2" placeholder="Breve descrição da foto..." required></textarea>
+                <div class="photo-info">
+                    <div>
+                        <h3 class="photo-title">Atendimento Técnico Especializado</h3>
+                        <p class="photo-desc">Demonstração de alta performance e suporte direto para operações agrícolas e industriais na região de Maringá-PR.</p>
+                    </div>
+                    <button class="btn-copy" onclick="copyPhotoLink('Marcão da Graxa foto.png', this)">Copiar Link da Foto</button>
                 </div>
-                <button type="submit" class="btn-cadastrar">Fazer Upload e Publicar</button>
-            </form>
+            </div>
+
+            <!-- FOTO 2 -->
+            <div class="photo-card">
+                <div class="photo-wrapper" onclick="openModal('Marcao da Graxa Nome.png', 'Portfólio de Soluções NCH Brasil')">
+                    <img src="Marcao da Graxa Nome.png" alt="Portfólio de Soluções NCH Brasil" id="img-2">
+                </div>
+                <div class="photo-info">
+                    <div>
+                        <h3 class="photo-title">Portfólio de Soluções NCH Brasil</h3>
+                        <p class="photo-desc">Linha completa de lubrificantes, graxas especiais e aditivos voltados para a redução de custos de manutenção.</p>
+                    </div>
+                    <button class="btn-copy" onclick="copyPhotoLink('Marcao da Graxa Nome.png', this)">Copiar Link da Foto</button>
+                </div>
+            </div>
+
+            <!-- FOTO 3 -->
+            <div class="photo-card">
+                <div class="photo-wrapper" onclick="openModal('https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800&auto=format&fit=crop', 'Aplicação de Graxa Industrial')">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800&auto=format&fit=crop" alt="Aplicação de Graxa Industrial" id="img-3">
+                </div>
+                <div class="photo-info">
+                    <div>
+                        <h3 class="photo-title">Aplicação de Graxa Industrial</h3>
+                        <p class="photo-desc">Equipamentos protegidos com tecnologia avançada contra desgaste severo e umidade.</p>
+                    </div>
+                    <button class="btn-copy" onclick="copyPhotoLink('https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800&auto=format&fit=crop', this)">Copiar Link da Foto</button>
+                </div>
+            </div>
         </div>
-
-        <!-- Grid de Fotos -->
-        <div class="photo-grid" id="photoGrid"></div>
     </main>
 
-    <!-- Modal de Ampliação (Lightbox) -->
-    <div id="imageModal" class="modal" onclick="closeModal()">
-        <div class="modal-content-container" onclick="event.stopPropagation()">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <img class="modal-img" id="modalImg" src="" alt="Foto Ampliada">
-            <div class="modal-caption" id="modalCaption"></div>
-        </div>
+    <!-- Modal para Ampliar Imagem -->
+    <div id="photoModal" class="modal" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content-img" id="modalImg">
+        <div class="modal-caption" id="modalCaption"></div>
     </div>
 
     <footer>
@@ -387,92 +367,42 @@
     </footer>
 
     <script>
-        // Banco de dados inicial com as fotos padrão
-        let fotos = [
-            {
-                url: "Marcão da Graxa foto.png",
-                titulo: "Atendimento Técnico Especializado",
-                descricao: "Demonstração de alta performance e suporte direto para operações agrícolas e industriais na região de Maringá-PR."
-            },
-            {
-                url: "Marcao da Graxa Nome.png",
-                titulo: "Portfólio de Soluções NCH Brasil",
-                descricao: "Linha completa de lubrificantes, graxas especiais e aditivos voltados para a redução de custos de manutenção."
-            }
-        ];
-
-        // Renderizar galeria na tela
-        function renderGallery() {
-            const grid = document.getElementById('photoGrid');
-            grid.innerHTML = '';
-
-            fotos.forEach((foto) => {
-                const cardHTML = `
-                    <div class="photo-card">
-                        <div class="photo-wrapper" onclick="openModal('${foto.url}', '${foto.titulo.replace(/'/g, "\\'")}')">
-                            <img src="${foto.url}" alt="${foto.titulo}" onerror="this.src='https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?q=80&w=800&auto=format&fit=crop'">
-                        </div>
-                        <div class="photo-info">
-                            <div>
-                                <h3 class="photo-title">${foto.titulo}</h3>
-                                <p class="photo-desc">${foto.descricao}</p>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                grid.insertAdjacentHTML('beforeend', cardHTML);
-            });
-        }
-
-        // Função para capturar a foto do computador e enviar para a galeria
-        function uploadPhoto(event) {
-            event.preventDefault();
-
-            const fileInput = document.getElementById('imageFile');
-            const titulo = document.getElementById('photoTitle').value.trim();
-            const descricao = document.getElementById('photoDesc').value.trim();
-
-            if (fileInput.files && fileInput.files[0]) {
-                const reader = new FileReader();
-
-                reader.onload = function(e) {
-                    const imageUrl = e.target.result; // Converte a imagem do PC em código exibível na página
-                    
-                    // Adiciona a nova foto no topo da lista
-                    fotos.unshift({
-                        url: imageUrl,
-                        titulo: titulo,
-                        descricao: descricao
-                    });
-
-                    renderGallery();
-                    document.getElementById('uploadForm').reset();
-                }
-
-                reader.readAsDataURL(fileInput.files[0]);
-            }
-        }
-
-        // Abrir Modal de Ampliação
-        function openModal(url, titulo) {
-            const modal = document.getElementById('imageModal');
+        // Função para abrir o modal com a imagem ampliada
+        function openModal(imgSrc, title) {
+            const modal = document.getElementById('photoModal');
             const modalImg = document.getElementById('modalImg');
             const modalCaption = document.getElementById('modalCaption');
 
             modal.style.display = 'flex';
-            modalImg.src = url;
-            modalCaption.innerText = titulo;
+            modalImg.src = imgSrc;
+            modalCaption.textContent = title;
         }
 
-        // Fechar Modal
+        // Função para fechar o modal
         function closeModal() {
-            document.getElementById('imageModal').style.display = 'none';
+            document.getElementById('photoModal').style.display = 'none';
         }
 
-        // Inicializar galeria
-        document.addEventListener('DOMContentLoaded', () => {
-            renderGallery();
-        });
+        // Função para copiar o link completo da foto para a área de transferência
+        function copyPhotoLink(imagePath, buttonElement) {
+            // Monta a URL completa baseada no endereço atual do site
+            const fullUrl = window.location.origin + '/' + imagePath;
+
+            navigator.clipboard.writeText(fullUrl).then(() => {
+                const originalText = buttonElement.textContent;
+                buttonElement.textContent = 'Link Copiado!';
+                buttonElement.style.background = 'var(--green-accent)';
+                buttonElement.style.color = '#fff';
+
+                setTimeout(() => {
+                    buttonElement.textContent = originalText;
+                    buttonElement.style.background = 'rgba(0, 82, 212, 0.2)';
+                    buttonElement.style.color = '#38BDF8';
+                }, 2000);
+            }).catch(err => {
+                alert('Erro ao copiar o link.');
+            });
+        }
     </script>
 
 </body>
