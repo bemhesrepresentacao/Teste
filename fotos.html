@@ -108,6 +108,71 @@
             font-size: 1.1rem;
         }
 
+        /* Painel de Cadastro de Fotos */
+        .admin-panel {
+            background: var(--card-bg);
+            border: 1px solid var(--blue-accent);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .admin-panel h3 {
+            color: var(--green-accent);
+            margin-bottom: 1.2rem;
+            font-size: 1.3rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.3rem;
+        }
+
+        .form-group input, .form-group textarea {
+            background: #070A0F;
+            border: 1px solid #1E293B;
+            padding: 0.7rem;
+            border-radius: 6px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--green-accent);
+        }
+
+        .btn-cadastrar {
+            background: linear-gradient(90deg, var(--blue-accent), var(--green-accent));
+            color: #fff;
+            padding: 0.7rem 1.8rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+        }
+
+        .btn-cadastrar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(34, 197, 94, 0.5);
+        }
+
         /* Grid de Fotos */
         .photo-grid {
             display: grid;
@@ -136,6 +201,7 @@
             height: 220px;
             overflow: hidden;
             background-color: #030508;
+            cursor: pointer;
             position: relative;
         }
 
@@ -167,6 +233,60 @@
         .photo-desc {
             font-size: 0.9rem;
             color: var(--text-muted);
+        }
+
+        /* Modal para Ampliar a Foto (Lightbox) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(6px);
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-content-container {
+            position: relative;
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .modal-img {
+            max-width: 100%;
+            max-height: 75vh;
+            border-radius: 8px;
+            border: 2px solid var(--blue-accent);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            object-fit: contain;
+        }
+
+        .modal-caption {
+            color: var(--text-light);
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: var(--text-muted);
+            font-size: 2.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: #fff;
         }
 
         /* Rodapé */
@@ -220,55 +340,125 @@
 
     <main class="gallery-container">
         <h2 class="section-title">Galeria de Fotos</h2>
-        <p class="section-subtitle">Confira os registros de produtos, aplicações e momentos de atuação técnica do Marcão da Graxa.</p>
+        <p class="section-subtitle">Cadastre novas fotos e clique em qualquer imagem para ampliá-la.</p>
 
-        <div class="photo-grid">
-            <!-- FOTO 1 -->
-            <div class="photo-card">
-                <div class="photo-wrapper">
-                    <!-- Substitua o atributo src pelo nome exato do arquivo da sua foto -->
-                    <img src="Marcão da Graxa foto.png" alt="Atendimento Técnico Especializado">
-                </div>
-                <div class="photo-info">
-                    <div>
-                        <h3 class="photo-title">Atendimento Técnico Especializado</h3>
-                        <p class="photo-desc">Demonstração de alta performance e suporte direto para operações agrícolas e industriais na região de Maringá-PR.</p>
+        <!-- Painel para Cadastrar Novas Fotos -->
+        <div class="admin-panel">
+            <h3>➕ Cadastrar Nova Foto</h3>
+            <form id="photoForm" onsubmit="addPhoto(event)">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="photoUrl">Nome do arquivo ou URL da Imagem:</label>
+                        <input type="text" id="photoUrl" placeholder="ex: foto-equipamento.jpg" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="photoTitle">Título da Foto:</label>
+                        <input type="text" id="photoTitle" placeholder="ex: Manutenção em Campo" required>
                     </div>
                 </div>
-            </div>
-
-            <!-- FOTO 2 -->
-            <div class="photo-card">
-                <div class="photo-wrapper">
-                    <img src="Marcao da Graxa Nome.png" alt="Portfólio de Soluções NCH Brasil">
+                <div class="form-group" style="margin-bottom: 1rem;">
+                    <label for="photoDesc">Descrição:</label>
+                    <textarea id="photoDesc" rows="2" placeholder="Breve descrição da foto..." required></textarea>
                 </div>
-                <div class="photo-info">
-                    <div>
-                        <h3 class="photo-title">Portfólio de Soluções NCH Brasil</h3>
-                        <p class="photo-desc">Linha completa de lubrificantes, graxas especiais e aditivos voltados para a redução de custos de manutenção.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- FOTO 3 (Exemplo adicional pronto para novas fotos) -->
-            <div class="photo-card">
-                <div class="photo-wrapper">
-                    <!-- Insira o arquivo da sua imagem aqui -->
-                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800&auto=format&fit=crop" alt="Aplicação de Graxa Industrial">
-                </div>
-                <div class="photo-info">
-                    <div>
-                        <h3 class="photo-title">Aplicação de Graxa Industrial</h3>
-                        <p class="photo-desc">Equipamentos protegidos com tecnologia avançada contra desgaste severo e umidade.</p>
-                    </div>
-                </div>
-            </div>
+                <button type="submit" class="btn-cadastrar">Adicionar à Galeria</button>
+            </form>
         </div>
+
+        <!-- Grid onde as fotos serão renderizadas -->
+        <div class="photo-grid" id="photoGrid"></div>
     </main>
+
+    <!-- Modal de Ampliação (Lightbox) -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <div class="modal-content-container" onclick="event.stopPropagation()">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <img class="modal-img" id="modalImg" src="" alt="Foto Ampliada">
+            <div class="modal-caption" id="modalCaption"></div>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2026 Bemhes Representação. Parceria • Confiança • Resultados.</p>
     </footer>
+
+    <script>
+        // Banco de dados inicial de fotos cadastradas
+        let fotos = [
+            {
+                url: "Marcão da Graxa foto.png",
+                titulo: "Atendimento Técnico Especializado",
+                descricao: "Demonstração de alta performance e suporte direto para operações agrícolas e industriais na região de Maringá-PR."
+            },
+            {
+                url: "Marcao da Graxa Nome.png",
+                titulo: "Portfólio de Soluções NCH Brasil",
+                descricao: "Linha completa de lubrificantes, graxas especiais e aditivos voltados para a redução de custos de manutenção."
+            },
+            {
+                url: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800&auto=format&fit=crop",
+                titulo: "Aplicação de Graxa Industrial",
+                descricao: "Equipamentos protegidos com tecnologia avançada contra desgaste severo e umidade."
+            }
+        ];
+
+        // Função para renderizar as fotos na tela
+        function renderGallery() {
+            const grid = document.getElementById('photoGrid');
+            grid.innerHTML = '';
+
+            fotos.forEach((foto, index) => {
+                const cardHTML = `
+                    <div class="photo-card">
+                        <div class="photo-wrapper" onclick="openModal('${foto.url}', '${foto.titulo.replace(/'/g, "\\'")}')">
+                            <img src="${foto.url}" alt="${foto.titulo}" onerror="this.src='https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?q=80&w=800&auto=format&fit=crop'">
+                        </div>
+                        <div class="photo-info">
+                            <div>
+                                <h3 class="photo-title">${foto.titulo}</h3>
+                                <p class="photo-desc">${foto.descricao}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                grid.insertAdjacentHTML('beforeend', cardHTML);
+            });
+        }
+
+        // Função para cadastrar nova foto pelo formulário
+        function addPhoto(event) {
+            event.preventDefault();
+
+            const url = document.getElementById('photoUrl').value.trim();
+            const titulo = document.getElementById('photoTitle').value.trim();
+            const descricao = document.getElementById('photoDesc').value.trim();
+
+            if (url && titulo && descricao) {
+                fotos.unshift({ url, titulo, descricao }); // Adiciona no início da lista
+                renderGallery();
+                document.getElementById('photoForm').reset(); // Limpa o formulário
+            }
+        }
+
+        // Funções do Modal de Ampliação
+        function openModal(url, titulo) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImg');
+            const modalCaption = document.getElementById('modalCaption');
+
+            modal.style.display = 'flex';
+            modalImg.src = url;
+            modalCaption.innerText = titulo;
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // Inicializar a galeria ao carregar a página
+        document.addEventListener('DOMContentLoaded', () => {
+            renderGallery();
+        });
+    </script>
 
 </body>
 
