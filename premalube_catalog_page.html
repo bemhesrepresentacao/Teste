@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9TH88E5DED"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-9TH88E5DED');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- =========================================================
+         PRÉVIA AO COMPARTILHAR O LINK (WhatsApp, Facebook, etc.)
+         ========================================================= -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Marcão da Graxa | Premalube - Catálogo Completo">
+    <meta property="og:description" content="Graxa multipropósito para cargas pesadas, pressão extrema e altas temperaturas NLGI 2, 1, 0, 00.">
+    <meta property="og:url" content="https://bemhesrepresentacao.github.io/Marcao-da-Graxa/">
+    <meta property="og:image" content="https://bemhesrepresentacao.github.io/Marcao-da-Graxa/Marc%C3%A3o%20da%20Graxa%20foto.png">
+    <meta property="og:image:alt" content="Marcão da Graxa">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Compatibilidade com outras plataformas -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Marcão da Graxa | Premalube">
+    <meta name="twitter:description" content="Lubrificação de alta performance, proteção e manutenção de máquinas e equipamentos.">
+    <meta name="twitter:image" content="https://bemhesrepresentacao.github.io/Marcao-da-Graxa/Marc%C3%A3o%20da%20Graxa%20foto.png">
+
+    <title>Premalube | Marcão da Graxa</title>
+    <style>
+        :root {
+            --bg-dark: #070A0F;
+            --card-bg: #0F172A;
+            --blue-accent: #0052D4;
+            --green-accent: #22C55E;
+            --text-light: #F8FAFC;
+            --text-muted: #94A3B8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Header / Navbar */
+        header {
+            background-color: rgba(7, 10, 15, 0.95);
+            padding: 0.8rem 8%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--blue-accent);
+            backdrop-filter: blur(5px);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 55px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--green-accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(7, 10, 15, 0.85), rgba(7, 10, 15, 0.85)),
+                url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=1032&auto=format&fit=crop') center/cover;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 1rem 4rem;
+        }
+
+        .hero-content h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #1E90FF, var(--green-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            background: linear-gradient(90deg, var(--blue-accent), var(--green-accent));
+            color: #fff;
+            padding: 0.9rem 2.2rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(34, 197, 94, 0.5);
+        }
+
+        /* Seções */
+        section {
+            padding: 5rem 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: var(--green-accent);
+            display: block;
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* Cards & Grids */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 2.5rem 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #1E293B;
+            border-top: 4px solid var(--blue-accent);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--green-accent);
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            color: #38BDF8;
+            font-size: 1.3rem;
+        }
+
+        .card p, .card li {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .card ul {
+            list-style-type: disc;
+            margin-left: 1.2rem;
+        }
+
+        .card li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Tabela de Especificações */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            background: var(--card-bg);
+            border-radius: 10px;
+            border: 1px solid #1E293B;
+            margin-top: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        th, td {
+            padding: 1rem;
+            border-bottom: 1px solid #1E293B;
+        }
+
+        th {
+            background-color: rgba(0, 82, 212, 0.2);
+            color: #38BDF8;
+            font-weight: 600;
+        }
+
+        tr:hover td {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Alertas e Notas */
+        .alert-box {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid #EF4444;
+            border-left: 4px solid #EF4444;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            color: var(--text-muted);
+        }
+
+        .alert-box h4 {
+            color: #F87171;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contato & Rodapé */
+        .contact-section {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #0F172A 100%);
+            text-align: center;
+            border-top: 1px solid #1E293B;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+            color: var(--text-muted);
+        }
+
+        footer {
+            background-color: #030508;
+            color: var(--text-muted);
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+            border-top: 1px solid #1E293B;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            nav {
+                margin-top: 1rem;
+            }
+
+            nav a {
+                margin: 0 0.5rem;
+                font-size: 0.8rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <!-- Logo na aba do navegador (favicon) -->
+    <link rel="icon" type="image/png" href="Marcao%20da%20Graxa%20foto.png">
+    <link rel="shortcut icon" type="image/png" href="Marcao%20da%20Graxa%20foto.png">
+    <link rel="apple-touch-icon" href="Marcao%20da%20Graxa%20foto.png">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="Marcão da Graxa foto.png" alt="Marcão da Graxa foto" class="logo-img">
+            <img src="Marcao da Graxa Nome.png" alt="Marcao da Graxa" class="logo-img">
+        </div>
+        <nav>
+            <a href="index.html#inicio">Início</a>
+            <a href="index.html#sobre">Sobre</a>
+            <a href="index.html#atuacao">Atuação</a>
+            <a href="index.html#projetos">Produtos</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>PREMALUBE & PREMALUBE RED</h1>
+            <p>Graxa multipropósito de complexo de alumínio para cargas pesadas, pressão extrema e altas temperaturas (NLGI 2, 1, 0, 00).</p>
+            <a href="https://wa.me/5543988428240?text=Olá,%20gostaria%20de%20uma%20cotação%20da%20graxa%20Premalube!" target="_blank" class="btn">Solicitar Cotação no WhatsApp</a>
+        </div>
+    </section>
+
+    <section id="sobre">
+        <h2 class="section-title">Visão Geral do Produto</h2>
+        <div style="max-width: 900px; margin: 0 auto; color: var(--text-muted);">
+            <p style="font-size: 1.1rem; margin-bottom: 2rem; text-align: center;">
+                Graxa de complexo de alumínio especificamente formulada para equipamentos de construção, máquinas pesadas e equipamentos industriais. Oferece proteção superior contra cargas pesadas, terra, partículas abrasivas, água e calor. Também disponível na formulação vermelha (Premalube Red) nos graus NLGI #2, 1, 0 e 00.
+            </p>
+
+            <h3 style="color: #38BDF8; margin-bottom: 1rem;">Indústria e Clientes Atendidos:</h3>
+            <p style="margin-bottom: 2.5rem;">
+                Manufatura industrial, siderúrgicas e fundidoras, escavação e demolição, construção, concreto e asfalto, mineração e agricultura, indústria papeleira, gráficas, envasadoras, plantas químicas e refinarias, e plantas de processamento de alimentos.
+            </p>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Principais Características e Benefícios</h3>
+                    <ul>
+                        <li>Permanece no equipamento, prevenindo o desgaste sob condições de cargas pesadas.</li>
+                        <li>Propriedades excepcionais de reversão ao calor.</li>
+                        <li>Altamente resistente à água.</li>
+                        <li>Previne ferrugem e corrosão.</li>
+                        <li>Reduz seu inventário de graxas.</li>
+                        <li>Contém bissulfeto de molibdênio, que minimiza o desgaste abrasivo causado por terra e poeira.</li>
+                        <li><strong>Desempenho Térmico:</strong> NLGI #2 continua eficiente mesmo em temperaturas de $135^\circ\text{C}$ contínuos, ou $204^\circ\text{C}$ intermitentes, com lubrificação monitorada.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Ideal para Uso em:</h3>
+                    <ul>
+                        <li>Rolamentos, mancais e espaçadores.</li>
+                        <li>Engrenagens que requeiram graxas.</li>
+                        <li>Juntas universais e cruzetas.</li>
+                        <li>Rolos e rolos transportadores.</li>
+                        <li>Qualquer outra superfície de giro ou deslizamento.</li>
+                    </ul>
+                    <div class="alert-box" style="margin-top: 1.5rem; padding: 1rem;">
+                        <h4 style="font-size: 0.95rem;">Precaução:</h4>
+                        <p style="font-size: 0.85rem;">Não utilizar em rolamentos que excedam 4.500 RPM ou aplicações operando a temperaturas superiores a $260^\circ\text{C}$.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="aditivos" style="background: rgba(15, 23, 42, 0.5);">
+        <h2 class="section-title">Pacote Completo de Aditivos</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Óleo Base Premium</h3>
+                <p>Óleo altamente refinado de qualidade superior que resiste à oxidação, endurecimento e decomposição em altas temperaturas, mantendo a lubricidade constante.</p>
+            </div>
+            <div class="card">
+                <h3>Base Complexo de Alumínio</h3>
+                <p>Suporta altas temperaturas e é o único espessante com características de reversão ao calor. Resiste com excelência à lavagem por água.</p>
+            </div>
+            <div class="card">
+                <h3>Bissulfeto de Molibdênio</h3>
+                <p>Reveste superfícies metálicas com uma película lubrificante antidesgaste para cargas pesadas em ambientes sujos e abrasivos.</p>
+            </div>
+            <div class="card">
+                <h3>Polímeros Adesivos</h3>
+                <p>Polímeros altamente elásticos que mantêm a graxa no local de aplicação, prevenindo a entrada de contaminantes e perdas por escorrimento.</p>
+            </div>
+            <div class="card">
+                <h3>Inibidores de Corrosão</h3>
+                <p>Bloqueiam elementos corrosivos como água, ácidos e condensado através de uma barreira protetora contra desgaste químico.</p>
+            </div>
+            <div class="card">
+                <h3>Agentes EP & Antidesgaste</h3>
+                <p>Ativados pelo calor para prevenir desgaste excessivo sob cargas pesadas, choques e vibrações, evitando contato metal com metal.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="especificacoes">
+        <h2 class="section-title">Características Típicas</h2>
+        <div style="max-width: 1100px; margin: 0 auto;">
+            <p style="color: var(--text-muted); margin-bottom: 1rem; text-align: center;">Dados técnicos e parâmetros de desempenho laboratoriais da linha Premalube e Premalube Red.</p>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Propriedade</th>
+                            <th>NLGI 2 (Preta)</th>
+                            <th>NLGI 1 (Preta)</th>
+                            <th>NLGI 2 (Vermelha)</th>
+                            <th>NLGI 1 (Vermelha)</th>
+                            <th>NLGI 0 (Vermelha)</th>
+                            <th>NLGI 00 (Vermelha)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Penetração Trabalhada 60x</td>
+                            <td>265-295</td>
+                            <td>310-340</td>
+                            <td>265-295</td>
+                            <td>310-340</td>
+                            <td>355-385</td>
+                            <td>400-430</td>
+                        </tr>
+                        <tr>
+                            <td>Ponto de Gota ($^\circ\text{C}$)</td>
+                            <td>$260+$</td>
+                            <td>$260+$</td>
+                            <td>$260+$</td>
+                            <td>$246+$</td>
+                            <td>$256$</td>
+                            <td>$251$</td>
+                        </tr>
+                        <tr>
+                            <td>Carga Timken OK (lb)</td>
+                            <td>65</td>
+                            <td>60</td>
+                            <td>60</td>
+                            <td>60</td>
+                            <td>60</td>
+                            <td>60</td>
+                        </tr>
+                        <tr>
+                            <td>4-Ball (Ponto de Solda, kg)</td>
+                            <td>800</td>
+                            <td>800</td>
+                            <td>400</td>
+                            <td>250</td>
+                            <td>250</td>
+                            <td>250</td>
+                        </tr>
+                        <tr>
+                            <td>Temp. Máxima Contínua ($^\circ\text{C}$)</td>
+                            <td>135</td>
+                            <td>135</td>
+                            <td>135</td>
+                            <td>135</td>
+                            <td>135</td>
+                            <td>135</td>
+                        </tr>
+                        <tr>
+                            <td>Temp. Máxima Intermitente ($^\circ\text{C}$)</td>
+                            <td>204</td>
+                            <td>204</td>
+                            <td>204</td>
+                            <td>204</td>
+                            <td>204</td>
+                            <td>204</td>
+                        </tr>
+                        <tr>
+                            <td>Ensaio de Ferrugem</td>
+                            <td>Passa</td>
+                            <td>Passa</td>
+                            <td>Passa</td>
+                            <td>Passa</td>
+                            <td>Passa</td>
+                            <td>Passa</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card" style="margin-top: 2rem;">
+                <h3 style="color: #38BDF8;">Atendimento a Normas e Especificações</h3>
+                <p style="margin-bottom: 1rem;">O Premalube cumpre ou excede os rigorosos requisitos de desempenho das principais especificações industriais e militares:</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                    <ul>
+                        <li>Especificações para Siderúrgicas (EUA): Req. No. 340, 350, 352, 355, 370, 371, 372, 375</li>
+                        <li>Especificação Militar MIL-G-23549C</li>
+                    </ul>
+                    <ul>
+                        <li>Case 251H EP</li>
+                        <li>Caterpillar MPG</li>
+                        <li>Ford M1693A</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="contact-section">
+        <section style="font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px;">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <h2 style="color: #fff; margin-bottom: 8px;">Entre em Contato</h2>
+                <p style="color: #94A3B8; font-size: 1.1em; margin: 0;">Atendimento para Maringá – PR e Região</p>
+            </div>
+
+            <div style="position: relative; width: 100%; height: 450px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d467812.5181710522!2d-51.9375!3d-23.421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94eca1c8d76d8bcf%3A0xc3b83b38c2cb5799!2sMaring%C3%A1%2C%20PR!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </section>
+
+        <div class="contact-info">
+            <p><strong>WhatsApp:</strong> (43) 98842-8240</p>
+            <p><strong>E-mail:</strong> bemhesrepresentacao@gmail.com</p>
+            <p><strong>Localização:</strong> Maringá – PR e região</p>
+        </div>
+
+        <a href="https://wa.me/5543988428240" target="_blank" class="btn">Solicitar Atendimento</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Bemhes Representação. Parceria • Confiança • Resultados.</p>
+    </footer>
+
+</body>
+
+</html>
