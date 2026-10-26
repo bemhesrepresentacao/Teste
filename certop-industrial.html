@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8"><title>CERTOP Industrial - Bemhes Representação</title>
+  <meta charset="UTF-8">
+  <title>CERTOP Industrial - Bemhes Representação</title>
   <style>
     body { font-family: sans-serif; line-height: 1.6; margin: 0; background: #f9f9f9; padding: 20px; }
     .container { max-width: 900px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
@@ -9,22 +10,276 @@
     ul { margin-bottom: 20px; }
     .btn-wsp { display: inline-block; background: #25d366; color: white; padding: 12px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; }
     .btn-back { display: inline-block; margin-bottom: 15px; color: #004b87; text-decoration: none; font-weight: bold; }
+    
+    /* Container pai flexbox */
+    .container-flex {
+      display: flex;
+      gap: 20px;
+      width: 100%;
+      align-items: stretch;
+      margin-bottom: 20px;
+    }
+
+    /* Estilo padrão das caixas */
+    .caixa {
+      flex: 1;
+      background-color: #084cc2;
+      color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      box-sizing: border-box;
+      font-size: 18px;
+    }
+
+    /* Caixa específica com fundo branco */
+    .caixa.caixa-branca {
+      background-color: #ffffff;
+      color: #333333;
+      border: 1px solid #ddd;
+    }
+
+    .caixa.caixa-branca h4 {
+      color: #084cc2;
+    }
+
+    /* Ajuste específico para a caixa da imagem */
+    .caixa-com-imagem {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .caixa-com-imagem img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Estilo da caixa com tabela */
+    .caixa-tabela {
+      flex: 1;
+      background-color: #ffffff;
+      color: #333333;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #0000ff;
+      box-sizing: border-box;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .caixa-tabela table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .caixa-tabela th,  
+    .caixa-tabela td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #000;
+    }
+
+    .caixa-tabela th {
+      background-color: #084cc2;
+      color: white;
+      font-weight: bold;
+    }
+
+    /* Responsividade: No celular, os elementos ficam em coluna */
+    @media (max-width: 600px) {
+      .container-flex {
+        flex-direction: column;
+      }
+      .caixa-com-imagem {
+        height: 250px;  
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <a href="index.htm#catalago" class="btn-back">&larr; Voltar à Página Inicial</a>
     <h1>CERTOP Industrial</h1>
-    <h3>Óleo de alto desempenho para engrenagens e rolamentos industriais</h3>
-    <p><strong>Viscosidades disponíveis:</strong> ISO 68, 150, 220, 320, 460 e 680[cite: 4].</p>
+    <h3>Óleo de alto desempenho para engrenagens e rolamentos, especialmente formulado para equipamentos industriais pesados<br>ISO 68, 150, 220, 320, 460 e 680</h3>
     
+    <div class="container-flex">
+      <!-- Caixa da Esquerda com Imagem -->
+      <div class="caixa caixa-com-imagem">
+        <img src="Certop industrial imagem.jpg" alt="Certop Industrial">
+      </div>
+      
+      <!-- Caixa da Direita com Conteúdo -->
+      <div class="caixa">
+        <ul>
+          <li>OFERECE PROTEÇÃO SUPERIOR CONTRA VAZAMENTOS NOS SELOS, PARTIDAS A SECO, CONTAMINAÇÃO COM ÁGUA, OXIDAÇÃO E FORMAÇÃO DE ESPUMA.</li>
+        </ul>
+      </div>
+    </div>
+    
+    <h1 style="text-align: center;"><strong>PRINCIPAIS CARACTERÍSTICAS E BENEFÍCIOS</strong></h1>
+    
+    <div class="container-flex">
+      <!-- Caixa da Esquerda -->
+      <div class="caixa caixa-branca">
+        <ul>
+          <li style="color: #084cc2;"><strong>DURA ATÉ 4 VEZES MAIS QUE ÓLEOS CONVENCIONAIS</strong></li>
+          <li style="color: #084cc2;"><strong>ELIMINA DESGASTES POR PARTIDAS A SECO</strong></li>
+          <li style="color: #084cc2;"><strong>PREVINE A FERRUGEM E CORROSÃO</strong></li>
+          <li style="color: #084cc2;"><strong>SEPARA A ÁGUA PARA UMA FÁCIL DRENAGEM</strong></li>
+          <li style="color: #084cc2;"><strong>CONTROLA A FORMAÇÃO DE ESPUMA</strong></li>
+          <li style="color: #084cc2;"><strong>REDUZ A TEMPERATURA OPERACIONAL E RESISTE À OXIDAÇÃO, PROLONGANDO A VIDA ÚTIL DO ÓLEO</strong></li>
+          <li style="color: #084cc2;"><strong>AMPLA FAIXA DE TEMPERATURA</strong></li>
+          Opera de -12 ºC a 135 ºC intermitentes, com relubrificação monitorada.
+          <li style="color: #084cc2;"><strong>PARA MÁXIMO DESEMPENHO, UTILIZE COM O SISTEMA DE PURGA DA NCH</strong></li>
+        </ul>
+      </div>
+      
+      <!-- Caixa da Direita -->
+      <div class="caixa caixa-branca">
+        <ul>
+          <h4><strong>Cumprem ou excedem os requisitos de rendimento das seguintes especificações:</strong></h4>
+          <li>Aplicações API GL-3, GL-4 e GL-5, e a maioria das aplicações GL-1 e GL-2.</li>
+          <li>DIN 51517 parte 3 (CLP)</li>
+          <li>David Brown S1.53.101</li>
+          <li>Cincinnati Milacron P-59 CM ref.:1100207</li>
+          <li>US Steel #224</li>
+          <li>AGMA 9005, 215.02, 250.04</li>
+          <li>AGMA 2EP a 8 EP</li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Caixa com Tabela de Aditivos -->
+    <div class="caixa-tabela">
+      <table>
+        <thead>
+          <tr>
+            <th style="border: 1px solid #000000; padding: 5px;">ADITIVOS</th>
+            <th style="border: 1px solid #000000; padding: 5px;">BENEFÍCIOS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Óleo base de grau premium</td>
+            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Óleo base altamente refinado, de resistência superior à oxidação e degradação em altas temperaturas.</td>
+          </tr>
+          <tr>
+            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Inibidores de ferrugem e corrosão</td>
+            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Promovem uma barreira de proteção contra o desgaste químico causado por elementos corrosivos, como ácidos, água, condensado e vapor.</td>
+          </tr>
+          <tr>
+            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Inibidores de oxidação</td>
+            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Prolongam a vida útil do óleo, retardando o processo de oxidação e degradação.</td>
+          </tr>
+          <tr>
+            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Agentes antiespumantes</td>
+            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Inibem a formação de espuma no óleo durante a operação, reduzindo a pressão nos selos e evitando desgastes por cavitação em bombas.</td>
+          </tr>
+          <tr>
+            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Redutores de carga de impacto</td>
+            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Amortecem o impacto, minimizando tensões e vibrações que ocorrem sob cargas pesadas e em operações de liga/desliga.</td>
+          </tr>
+          <tr>
+            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Agentes de Extrema Pressão (EP)</td>
+            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Aditivos ativados pelo calor para aumentar a capacidade do lubrificante em prevenir desgastes em cargas pesadas.</td>
+          </tr>
+          <tr>
+            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Polímeros adesivos e coesivos</td>
+            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Mantêm o óleo nas engrenagens durante as operações de alta velocidade e em períodos de inatividade. Ajudam a prevenir o desgaste mecânico e o arranque a seco.</td>
+          </tr>
+          <tr>
+            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Agentes antidesgaste</td>
+            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Formam uma película lubrificante na superfícies de contato, prevenindo a soldagem a frio.</td>
+          </tr>
+          <tr>
+            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Redutores de atrito</td>
+            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Aumentam a capacidade da película lubrificante se manter íntegra.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Tabela de Propriedades -->
+    <div class="caixa-tabela">
+      <table>
+        <thead>
+          <tr>
+            <th colspan="7" style="text-align: center;">PROPRIEDADES</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong> </strong></td>
+            <td><strong>ISO 68</strong></td>
+            <td><strong>ISO 150</strong></td>
+            <td><strong>ISO 220</strong></td>
+            <td><strong>ISO 320</strong></td>
+            <td><strong>ISO 460</strong></td>
+            <td><strong>ISO 680</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Grau API</strong></td>
+            <td>29,3</td>
+            <td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td><strong>Ponto de fluidez, ºC (ASTM D97)</strong></td>
+            <td>-15</td>
+            <td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td><strong>Índice de Viscosidade (ASTM D2270)</strong></td>
+            <td>107</td>
+            <td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td><strong>Viscosidade a 40 ºC, cSt</strong></td>
+            <td>73,6</td>
+            <td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td><strong>Viscosidade a 100 ºC, cSt</strong></td>
+            <td>9,54</td>
+            <td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td><strong>Teste de oxidação (ASTM D1743)</strong></td>
+            <td>Passa</td>
+            <td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td><strong>Corrosão em lâmina de cobre (ASTM D4048)</strong></td>
+            <td>1A</td>
+            <td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td><strong>Carga Timken OK, lbs (ASTM D2509)</strong></td>
+            <td>60</td>
+            <td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td><strong>4-Ball, carga de solda, kg (ASTM D2596)</strong></td>
+            <td>250</td>
+            <td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td><strong>4-Ball, diâmetro de marca, mm (ASTM D2266)</strong></td>
+            <td>0,31</td>
+            <td></td><td></td><td></td><td></td><td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
     <h4>Destaques:</h4>
     <ul>
-      <li>Dura até 4 vezes mais que óleos convencionais[cite: 4]</li>
-      <li>Proteção superior contra vazamentos, oxidação e corrosão[cite: 4]</li>
-      <li>Previne e reduz desgastes em arranques a seco[cite: 4]</li>
-      <li>Cumpre especificações DIN 51517 CLP, AGMA 2EP a 8EP, US Steel #224, David Brown, etc[cite: 4].</li>
-      <li>Contém aditivos de Extrema Pressão (EP) e redutores de atrito[cite: 4]</li>
+      <li>Dura até 4 vezes mais que óleos convencionais</li>
+      <li>Proteção superior contra vazamentos, oxidação e corrosão</li>
+      <li>Previne e reduz desgastes em arranques a seco</li>
+      <li>Cumpre especificações DIN 51517 CLP, AGMA 2EP a 8EP, US Steel #224, David Brown, etc.</li>
+      <li>Contém aditivos de Extrema Pressão (EP) e redutores de atrito</li>
     </ul>
 
     <br>
