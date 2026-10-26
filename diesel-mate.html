@@ -122,6 +122,73 @@
         height: 250px;  
       }
     }
+
+    /* Estilos do Rodapé */
+.site-footer {
+  background-color: #004b87; /* Azul padrão da sua marca */
+  color: #ffffff;
+  padding: 40px 20px 20px 20px;
+  margin-top: 40px; /* Afasta o rodapé do conteúdo de cima */
+  border-radius: 8px 8px 0 0; /* Arredonda os cantos superiores */
+}
+
+.footer-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap; /* Garante que se adapte a telas menores */
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 220px;
+}
+
+.footer-col h3, 
+.footer-col h4 {
+  color: #ffffff;
+  margin-bottom: 15px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 5px;
+}
+
+.footer-col p, 
+.footer-col li {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #f1f3f5;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 8px;
+}
+
+.footer-col a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-col a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  max-width: 900px;
+  margin: 30px auto 0 auto;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: center;
+  font-size: 13px;
+  color: #cfd8dc;
+}
   </style>
 </head>
 <body>
@@ -264,5 +331,33 @@
     <br>
     <a href="https://wa.me/5543988428240?text=Olá!%20Gostaria%20de%20solicitar%20uma%20cotação/visita%20para%20o%20produto%20Diesel%20Mate." class="btn-wsp" target="_blank">Pedir Cotação / Agendar Visita pelo WhatsApp</a>
   </div>
+
+  <!-- Rodapé do Site -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h3>Bemhes Representação</h3>
+      <p>Soluções e aditivos de alta performance para o setor rodoviário, agrícola e industrial.</p>
+    </div>
+    
+    <div class="footer-col">
+      <h4>Links Rápidos</h4>
+      <ul>
+        <li><a href="index.htm#catalago">&larr; Página Inicial / Catálogo</a></li>
+        <li><a href="https://wa.me/5543988428240?text=Olá!%20Gostaria%20de%20falar%20com%20o%20suporte." target="_blank">Contato via WhatsApp</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <p>📱 WhatsApp: (43) 98842-8240</p>
+      <p>📍 Maringa e Região</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 Bemhes Representação. Todos os direitos reservados.</p>
+  </div>
+</footer>
 </body>
 </html>
