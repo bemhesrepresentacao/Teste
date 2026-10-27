@@ -96,6 +96,73 @@
         height: 250px;  
       }
     }
+    
+     /* Estilos do Rodapé */
+.site-footer {
+  background-color: #004b87; /* Azul padrão da sua marca */
+  color: #ffffff;
+  padding: 40px 20px 20px 20px;
+  margin-top: 40px; /* Afasta o rodapé do conteúdo de cima */
+  border-radius: 8px 8px 0 0; /* Arredonda os cantos superiores */
+}
+
+.footer-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap; /* Garante que se adapte a telas menores */
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 220px;
+}
+
+.footer-col h3, 
+.footer-col h4 {
+  color: #ffffff;
+  margin-bottom: 15px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 5px;
+}
+
+.footer-col p, 
+.footer-col li {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #f1f3f5;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 8px;
+}
+
+.footer-col a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-col a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  max-width: 900px;
+  margin: 30px auto 0 auto;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: center;
+  font-size: 13px;
+  color: #cfd8dc;
+}
   </style>
 </head>
 <body>
@@ -122,8 +189,8 @@
     
     <div class="container-flex">
       <!-- Caixa da Esquerda -->
-      <div class="caixa caixa-branca">
-        <ul>
+      <div class="caixa caixa-branca" style="text-align: justify; font-size: 18px; margin: 5px 0; padding: 5px;">
+        
           <li style="color: #084cc2;"><strong>DURA ATÉ 4 VEZES MAIS QUE ÓLEOS CONVENCIONAIS</strong></li>
           <li style="color: #084cc2;"><strong>ELIMINA DESGASTES POR PARTIDAS A SECO</strong></li>
           <li style="color: #084cc2;"><strong>PREVINE A FERRUGEM E CORROSÃO</strong></li>
@@ -133,11 +200,11 @@
           <li style="color: #084cc2;"><strong>AMPLA FAIXA DE TEMPERATURA</strong></li>
           Opera de -12 ºC a 135 ºC intermitentes, com relubrificação monitorada.
           <li style="color: #084cc2;"><strong>PARA MÁXIMO DESEMPENHO, UTILIZE COM O SISTEMA DE PURGA DA NCH</strong></li>
-        </ul>
+        
       </div>
       
       <!-- Caixa da Direita -->
-      <div class="caixa caixa-branca">
+      <div class="caixa caixa-branca" style="text-align: justify; font-size: 15px; margin: 10px 0;">
         <ul>
           <h4><strong>Cumprem ou excedem os requisitos de rendimento das seguintes especificações:</strong></h4>
           <li>Aplicações API GL-3, GL-4 e GL-5, e a maioria das aplicações GL-1 e GL-2.</li>
@@ -152,7 +219,7 @@
     </div>
     
     <!-- Caixa com Tabela de Aditivos -->
-    <div class="caixa-tabela">
+    <div class="caixa-tabela" style="text-align: justify; background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">
       <table>
         <thead>
           <tr>
@@ -162,47 +229,47 @@
         </thead>
         <tbody>
           <tr>
-            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Óleo base de grau premium</td>
-            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Óleo base altamente refinado, de resistência superior à oxidação e degradação em altas temperaturas.</td>
+            <td style="padding: 5px;">Óleo base de grau premium</td>
+            <td style="padding: 5px;">Óleo base altamente refinado, de resistência superior à oxidação e degradação em altas temperaturas.</td>
           </tr>
           <tr>
-            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Inibidores de ferrugem e corrosão</td>
-            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Promovem uma barreira de proteção contra o desgaste químico causado por elementos corrosivos, como ácidos, água, condensado e vapor.</td>
+            <td style="padding: 5px;">Inibidores de ferrugem e corrosão</td>
+            <td style="padding: 5px;">Promovem uma barreira de proteção contra o desgaste químico causado por elementos corrosivos, como ácidos, água, condensado e vapor.</td>
           </tr>
           <tr>
-            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Inibidores de oxidação</td>
-            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Prolongam a vida útil do óleo, retardando o processo de oxidação e degradação.</td>
+            <td style="padding: 5px;">Inibidores de oxidação</td>
+            <td style="padding: 5px;">Prolongam a vida útil do óleo, retardando o processo de oxidação e degradação.</td>
           </tr>
           <tr>
-            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Agentes antiespumantes</td>
-            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Inibem a formação de espuma no óleo durante a operação, reduzindo a pressão nos selos e evitando desgastes por cavitação em bombas.</td>
+            <td style="padding: 5px;">Agentes antiespumantes</td>
+            <td style="padding: 5px;">Inibem a formação de espuma no óleo durante a operação, reduzindo a pressão nos selos e evitando desgastes por cavitação em bombas.</td>
           </tr>
           <tr>
-            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Redutores de carga de impacto</td>
-            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Amortecem o impacto, minimizando tensões e vibrações que ocorrem sob cargas pesadas e em operações de liga/desliga.</td>
+            <td style="padding: 5px;">Redutores de carga de impacto</td>
+            <td style="padding: 5px;">Amortecem o impacto, minimizando tensões e vibrações que ocorrem sob cargas pesadas e em operações de liga/desliga.</td>
           </tr>
           <tr>
-            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Agentes de Extrema Pressão (EP)</td>
-            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Aditivos ativados pelo calor para aumentar a capacidade do lubrificante em prevenir desgastes em cargas pesadas.</td>
+            <td style="padding: 5px;">Agentes de Extrema Pressão (EP)</td>
+            <td style="padding: 5px;">Aditivos ativados pelo calor para aumentar a capacidade do lubrificante em prevenir desgastes em cargas pesadas.</td>
           </tr>
           <tr>
-            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Polímeros adesivos e coesivos</td>
-            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Mantêm o óleo nas engrenagens durante as operações de alta velocidade e em períodos de inatividade. Ajudam a prevenir o desgaste mecânico e o arranque a seco.</td>
+            <td style="padding: 5px;">Polímeros adesivos e coesivos</td>
+            <td style="padding: 5px;">Mantêm o óleo nas engrenagens durante as operações de alta velocidade e em períodos de inatividade. Ajudam a prevenir o desgaste mecânico e o arranque a seco.</td>
           </tr>
           <tr>
-            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Agentes antidesgaste</td>
-            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Formam uma película lubrificante na superfícies de contato, prevenindo a soldagem a frio.</td>
+            <td style="padding: 5px;">Agentes antidesgaste</td>
+            <td style="padding: 5px;">Formam uma película lubrificante na superfícies de contato, prevenindo a soldagem a frio.</td>
           </tr>
           <tr>
-            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Redutores de atrito</td>
-            <td style="background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">Aumentam a capacidade da película lubrificante se manter íntegra.</td>
+            <td style="padding: 5px;">Redutores de atrito</td>
+            <td style="padding: 5px;">Aumentam a capacidade da película lubrificante se manter íntegra.</td>
           </tr>
         </tbody>
       </table>
     </div>
   
     <!-- Tabela de Propriedades -->
-    <div class="caixa-tabela">
+    <div class="caixa-tabela"  style="padding: 5px;">
       <table>
         <thead>
           <tr>
@@ -221,59 +288,161 @@
           </tr>
           <tr>
             <td><strong>Grau API</strong></td>
-            <td>29,3</td><td>32,4</td><td>29,3</td><td>27,9</td><td>26,3</td><td>24,0</td>
+            <td>29,3</td>
+            <td>32,4</td>
+            <td>29,3</td>
+            <td>27,9</td>
+            <td>26,3</td>
+            <td>24,0</td>
           </tr>
           <tr>
             <td><strong>Ponto de fluidez, ºC (ASTM D97)</strong></td>
-            <td>-15</td><td>-9</td><td>-9</td><td>-9</td><td>-9</td><td>-6</td>
+            <td>-15</td>
+            <td>-9</td>
+            <td>-9</td>
+            <td>-9</td>
+            <td>-9</td>
+            <td>-6</td>
           </tr>
           <tr>
             <td><strong>Índice de Viscosidade (ASTM D2270)</strong></td>
-            <td>107</td><td>102</td><td>102</td><td>107</td><td>104</td><td>95</td>
+            <td>107</td>
+            <td>102</td>
+            <td>102</td>
+            <td>107</td>
+            <td>104</td>
+            <td>95</td>
           </tr>
           <tr>
             <td><strong>Viscosidade a 40 ºC, cSt</strong></td>
-            <td>73,6</td><td>164,4</td><td>220,86</td><td>294,45</td><td>468,6</td><td>680</td>
+            <td>73,6</td>
+            <td>164,4</td>
+            <td>220,86</td>
+            <td>294,45</td>
+            <td>468,6</td>
+            <td>680</td>
           </tr>
           <tr>
             <td><strong>Viscosidade a 100 ºC, cSt</strong></td>
-            <td>9,54</td><td>15,86</td><td>20,94</td><td>25,58</td><td>30,59</td><td>38,9</td>
+            <td>9,54</td>
+            <td>15,86</td>
+            <td>20,94</td>
+            <td>25,58</td>
+            <td>30,59</td>
+            <td>38,9</td>
           </tr>
           <tr>
             <td><strong>Teste de oxidação (ASTM D1743)</strong></td>
-            <td>Passa</td><td>Passa</td><td>Passa</td><td>Passa</td><td>Passa</td><td>Passa</td>
+            <td>Passa</td>
+            <td>Passa</td>
+            <td>Passa</td>
+            <td>Passa</td>
+            <td>Passa</td>
+            <td>Passa</td>
           </tr>
           <tr>
             <td><strong>Corrosão em lâmina de cobre (ASTM D4048)</strong></td>
-            <td>1A</td><td>1A</td><td>1A</td><td>1A</td><td>1A</td><td>1A</td>
+            <td>1A</td>
+            <td>1A</td>
+            <td>1A</td>
+            <td>1A</td>
+            <td>1A</td>
+            <td>1A</td>
           </tr>
           <tr>
             <td><strong>Carga Timken OK, lbs (ASTM D2509)</strong></td>
-            <td>60</td><td>65</td><td>65</td><td>65</td><td>65</td><td>65</td>
+            <td>60</td>
+            <td>65</td>
+            <td>65</td>
+            <td>65</td>
+            <td>65</td>
+            <td>65</td>
           </tr>
           <tr>
             <td><strong>4-Ball, carga de solda, kg (ASTM D2596)</strong></td>
-            <td>250</td><td>250</td><td>250</td><td>250</td><td>250</td><td>250</td>
+            <td>250</td>
+            <td>250</td>
+            <td>250</td>
+            <td>250</td>
+            <td>250</td>
+            <td>250</td>
           </tr>
           <tr>
             <td><strong>4-Ball, diâmetro de marca, mm (ASTM D2266)</strong></td>
-            <td>0,31</td><td>0,31</td><td>0,31</td><td>0,32</td><td>0,28</td><td>0,28</td>
+            <td>0,31</td>
+            <td>0,31</td>
+            <td>0,31</td>
+            <td>0,32</td>
+            <td>0,28</td>
+            <td>0,28</td>
           </tr>
         </tbody>
       </table>
     </div>
   
-    <h4>Destaques:</h4>
-    <ul>
-      <li>Dura até 4 vezes mais que óleos convencionais</li>
-      <li>Proteção superior contra vazamentos, oxidação e corrosão</li>
-      <li>Previne e reduz desgastes em arranques a seco</li>
-      <li>Cumpre especificações DIN 51517 CLP, AGMA 2EP a 8EP, US Steel #224, David Brown, etc.</li>
-      <li>Contém aditivos de Extrema Pressão (EP) e redutores de atrito</li>
-    </ul>
+    <div class="container-flex" style="font-size: 5px; margin: 10px 0;">
+      <!-- Caixa da Esquerda -->
+      <div class="caixa caixa-branca" style="text-align: justify; font-size: 15px; margin: 10px 0;">
+        <ul>
+          <h4 style="text-align: center;"><strong>IDEAL PARA:</strong></h4>
+          <p>Rolamentos lubrificados com óleo, caixas de engrenagens, incluindo engrenagens de dentes retos, hipoidais, espirais cônicas, espinha de peixe, engrenagens sem fim, planetárias, e combinações industriais de diferentes engrenagens. Pode ser utilizado como óleo de cilindros, exceto para cilindros de vapor. Pode ser utilizado como óleo de reposição para outro óleo de engrenagens.</p>
+        </ul>
+      </div>
+      
+      <!-- Caixa da Centro -->
+      <div class="caixa caixa-branca" style="text-align: justify; font-size: 15px; margin: 10px 0;">
+        <ul>
+          <h4 style="text-align: center;"><strong>NÃO UTILIZAR EM:</strong></h4>
+          <p>Qualquer equipamento para o qual o fabricante não recomende o uso deste tipo de lubrificante para engrenagens. Não utilize em engrenagens de cobre ou bronze.</p>
+        </ul>
+      </div>
+      
+      <!-- Caixa da Direita -->
+      <div class="caixa caixa-branca" style="text-align: justify; font-size: 15px; margin: 10px 0;">
+        <ul>
+          <h4 style="text-align: center;"><strong>PROTEÇÃO SUPERIOR EM:</strong></h4>
+          <li>Equipamentos de corte e colheita</li>
+          <li>Transporte de toras e madeira</li>
+          <li>Fábricas de papel e celulose</li>
+          <li>Moinhos de processamento de madeira em dimensão</li>
+          <li>Picagem e trituração</li>
+          <li>Moinhos de madeira compensada e folheada</li>
+          <li>Plantio de árvores e recuperação de florestas</li>
+        </ul>
+      </div>
+    </div>
 
     <br>
     <a href="https://wa.me/5543988428240?text=Olá!%20Gostaria%20de%20solicitar%20uma%20cotação/visita%20para%20o%20CERTOP%20Industrial." class="btn-wsp" target="_blank">Pedir Cotação / Agendar Visita pelo WhatsApp</a>
   </div>
+  
+  <!-- Rodapé do Site -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h3>Bemhes Representação</h3>
+      <p>Soluções e aditivos de alta performance para o setor rodoviário, agrícola e industrial.</p>
+    </div>
+    
+    <div class="footer-col">
+      <h4>Links Rápidos</h4>
+      <ul>
+        <li><a href="index.htm#catalago">&larr; Página Inicial / Catálogo</a></li>
+        <li><a href="https://wa.me/5543988428240?text=Olá!%20Gostaria%20de%20falar%20com%20o%20suporte." target="_blank">Contato via WhatsApp</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <p>📱 WhatsApp: (43) 98842-8240</p>
+      <p>📍 Maringa e Região</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 Bemhes Representação. Todos os direitos reservados.</p>
+  </div>
+  
+</footer>
 </body>
 </html>
