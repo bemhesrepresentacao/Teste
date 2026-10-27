@@ -9,30 +9,412 @@
     ul { margin-bottom: 20px; }
     .btn-wsp { display: inline-block; background: #25d366; color: white; padding: 12px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; }
     .btn-back { display: inline-block; margin-bottom: 15px; color: #004b87; text-decoration: none; font-weight: bold; }
+    
+    /* Container pai flexbox */
+    .container-flex {
+      display: flex;
+      gap: 20px;
+      width: 100%;
+      align-items: stretch;
+      margin-bottom: 20px;
+    }
+
+    /* Estilo padrão das caixas */
+    .caixa {
+      flex: 1;
+      background-color: #084cc2;
+      color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      box-sizing: border-box;
+      font-size: 18px;
+    }
+
+    /* Caixa específica com fundo branco */
+    .caixa.caixa-branca {
+      background-color: #ffffff;
+      color: #333333;
+      border: 1px solid #ddd;
+    }
+
+    .caixa.caixa-branca h4 {
+      color: #084cc2;
+    }
+
+    /* Ajuste específico para a caixa da imagem */
+    .caixa-com-imagem {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .caixa-com-imagem img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Estilo da caixa com tabela */
+    .caixa-tabela {
+      flex: 1;
+      background-color: #ffffff;
+      color: #333333;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #0000ff;
+      box-sizing: border-box;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .caixa-tabela table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .caixa-tabela th,  
+    .caixa-tabela td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #000;
+    }
+
+    .caixa-tabela th {
+      background-color: #084cc2;
+      color: white;
+      font-weight: bold;
+    }
+
+    /* Responsividade: No celular, os elementos ficam em coluna */
+    @media (max-width: 600px) {
+      .container-flex {
+        flex-direction: column;
+      }
+      .caixa-com-imagem {
+        height: 250px;  
+      }
+    }
+    
+     /* Estilos do Rodapé */
+.site-footer {
+  background-color: #004b87; /* Azul padrão da sua marca */
+  color: #ffffff;
+  padding: 40px 20px 20px 20px;
+  margin-top: 40px; /* Afasta o rodapé do conteúdo de cima */
+  border-radius: 8px 8px 0 0; /* Arredonda os cantos superiores */
+}
+
+.footer-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap; /* Garante que se adapte a telas menores */
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 220px;
+}
+
+.footer-col h3, 
+.footer-col h4 {
+  color: #ffffff;
+  margin-bottom: 15px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 5px;
+}
+
+.footer-col p, 
+.footer-col li {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #f1f3f5;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 8px;
+}
+
+.footer-col a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-col a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  max-width: 900px;
+  margin: 30px auto 0 auto;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: center;
+  font-size: 13px;
+  color: #cfd8dc;
+}
   </style>
 </head>
 <body>
   <div class="container">
    <a href="index.htm#catalago" class="btn-back">&larr; Voltar à Página Inicial</a>
     <h1>CERTOP 80W90 e 85W140</h1>
-    <h3>Óleo multiviscoso de alto desempenho para engrenagens</h3>
-    <p>Especialmente desenvolvido para aplicações severas e equipamentos pesados[cite: 3].</p>
+    <h4>Óleo multiviscoso de alto desempenho para engrenagens, especialmente desenvolvido para aplicações severas e equipamentos pesados, 80W90 e 85W140.</h4>
     
-    <h4>Principais Benefícios:</h4>
-    <ul>
-      <li>Dura até 4 vezes mais que óleos convencionais[cite: 3]</li>
-      <li>Elimina desgastes por partidas a seco[cite: 3]</li>
-      <li>Controla vazamentos e dilatação em selos[cite: 3]</li>
-      <li>Separa a água facilitando a drenagem[cite: 3]</li>
-      <li>Resiste a temperaturas contínuas de até 160°C[cite: 3]</li>
-      <li>Atende aplicações API GL-3, GL-4, GL-5, SAE J2360, Mack GO-A até GO-H, etc[cite: 3].</li>
-    </ul>
-
-    <h4>Aplicações Recomendadas:</h4>
-    <p>Diferenciais, transmissões manuais simples, eixos, caixas de engrenagens em geral para agricultura, construção, mineração e manufaturas industriais[cite: 3].</p>
+    <div class="container-flex">
+      <!-- Caixa da Esquerda com Imagem -->
+      <div class="caixa caixa-com-imagem">
+        <img src="Certop industrial imagem.jpg" alt="Certop 80W90 e 85W140">
+      </div>
+      
+      <!-- Caixa da Direita com Conteúdo -->
+      <div class="caixa">
+        <ul>
+          <h4>A SOLUÇÃO AVANÇADA PARA:</h4>
+          <li>VAZAMENTOS EM SELOS</li>
+          <li>PARTIDAS A SECO</li>
+          <li>CONTAMINAÇÃO POR ÁGUA</li>
+          <li>OXIDAÇÃO</li>
+          <li>FORMAÇÃO DE ESPUMA</li>
+        </ul>
+      </div>
+    </div>
+    
+    <h1 style="text-align: center; color: #ffffff; background-color: #084cc2; "><strong>PRINCIPAIS CARACTERÍSTICAS E BENEFÍCIOS</strong></h1>
+    
+    <div class="container-flex">
+      <!-- Caixa da Esquerda -->
+      <div class="caixa caixa-branca" style="text-align: justify; font-size: 18px; margin: 5px 0; padding: 5px;">
+        
+          <p style="color: #084cc2;"><strong>Dura até 4 vezes mais que óleos convencionais</strong></p>
+          <p style="color: #084cc2;"><strong>Elimina desgastes por partidas a seco</strong></p>
+          <p style="color: #084cc2;"><strong>Controla vazamentos em selos</strong></p>
+          <p style="color: #084cc2;"><strong>Previne ferrugem e corrosão</strong></p>
+          <p style="color: #084cc2;"><strong>Separa a água para uma fácil drenagem</strong></p>
+          <p style="color: #084cc2;"><strong>Controla a espuma</strong></p>
+          <p style="color: #084cc2;"><strong>Reduz a temperatura operacional e resiste a oxidação, prolongando a vida útil do óleo</strong></p>
+          <p style="color: #084cc2;"><strong>Ampla faixa de temperatura de até 160°C contínuos</strong><br>
+          <strong style="color: #000000;">80W90 flui até -27°C</strong><br>
+          <strong style="color: #000000;">85W140 flui até -24°C</strong></p>
+        
+      </div>
+      
+      <!-- Caixa da Direita -->
+      <div class="caixa caixa-branca" style="text-align: justify; font-size: 15px; margin: 10px 0;">
+        <ul>
+          <h4>Cumprem ou excedem os requisitos de rendimento das seguintes especificações:</h4>
+          <li style="color: #084cc2;">Todas as aplicações API GL-3, GL-4 e GL-5 (e a maioria das aplicações API GL-1 e GL-2), MT</li> 
+          <li style="color: #084cc2;">SAE J2360</li>
+          <li style="color: #084cc2;">Viscosidades 4 EP a 6 EP</li>
+          <li style="color: #084cc2;">Mack Truck GO-A até GO-H (80W90)</li>
+          <li style="color: #084cc2;">ZF TE-ML 07A</li>
+          <li style="color: #084cc2;">ZF TE ML 08</li>
+          <li style="color: #084cc2;">Rockwell Standard 0-76 (80W90)</li>
+          <li style="color: #084cc2;">KW Dart (80W90)</li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Caixa com Tabela de Aditivos -->
+    <div class="caixa-tabela" style="text-align: justify; background-color: #f8f9fa; color: #333333; border: 1px solid #000000; padding: 5px;">
+      <table>
+        <thead>
+          <tr>
+            <th style="border: 1px solid #000000; padding: 5px;">ADITIVOS</th>
+            <th style="border: 1px solid #000000; padding: 5px;">BENEFÍCIOS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 5px;">Óleo base de grau premium</td>
+            <td style="padding: 5px;">Óleo base altamente refinado, de resistência superior à oxidação e degradação em altas temperaturas.</td>
+          </tr>
+          <tr>
+            <td style="padding: 5px;">Condicionadores de selo</td>
+            <td style="padding: 5px;">Compostos especiais que amolecem e condicionam os selos, evitando que eles endureçam e rachem.</td>
+          </tr>
+          <tr>
+            <td style="padding: 5px;">Inibidores de vazamento</td>
+            <td style="padding: 5px;">maioria dos vazamentos ocorre devido ao encolhimento que os óleos causam aos selos. Contém agentes especiais que controlam a dilatação dos selos.</td>
+          </tr>
+          <tr>
+            <td style="padding: 5px;">Inibidores de ferrugem e corrosão</td>
+            <td style="padding: 5px;">Promovem uma barreira de proteção contra o desgaste químico causado por elementos corrosivos, como ácidos, água, condensado e vapor.</td>
+          </tr>
+          <tr>
+            <td style="padding: 5px;">Inibidores de oxidação</td>
+            <td style="padding: 5px;">Prolongam a vida útil do óleo retardando o processo de oxidação e degradação</td>
+          </tr>
+          <tr>
+            <td style="padding: 5px;">Desemulsificantes</td>
+            <td style="padding: 5px;">Separam a água do óleo, mantendo as superfícies secas e retardando o processo de oxidação.</td>
+          </tr>
+          <tr>
+            <td style="padding: 5px;">Agentes antiespumantes</td>
+            <td style="padding: 5px;">Inibem a formação de espuma no óleo durante a operação, reduzindo a pressão nos selos e evitando desgastes por cavitação em bombas.</td>
+          </tr>
+          <tr>
+            <td style="padding: 5px;">Agentes EP</td>
+            <td style="padding: 5px;">Aditivos ativados pelo calor para prevenir desgastes em cargas pesadas</td>
+          </tr>
+          <tr>
+            <td style="padding: 5px;">Redutores de carga de impacto</td>
+            <td style="padding: 5px;">Amortecem o impacto, minimizando tensões e vibrações que ocorrem sob cargas pesadas e em operações de liga/desliga.</td>
+          </tr>
+          <tr>
+            <td style="padding: 5px;">Polímeros adesivos e coesivos</td>
+            <td style="padding: 5px;">Mantêm o óleo nas engrenagens durante as operações de alta velocidade e em períodos de inatividade. Ajudam a prevenir o desgaste mecânico e o arranque a seco.</td>
+          </tr>
+          <tr>
+            <td style="padding: 5px;">Melhoradores de IV</td>
+            <td style="padding: 5px;">Mantêm a viscosidade do óleo sob uma ampla faixa de temperatura operacional</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <!-- Tabela de Propriedades -->
+    <div class="caixa-tabela"  style="padding: 5px;">
+      <table>
+        <thead>
+          <tr>
+            <th colspan="7" style="text-align: center;">PROPRIEDADES TIPICAS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong> </strong></td>
+            <td><strong>80W90</strong></td>
+            <td><strong>85W140</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Ponto de fluidez, °C</strong></td>
+            <td>-27</td>
+            <td>-24</td>
+            
+          </tr>
+          <tr>
+            <td><strong>Índice de Viscosidade</strong></td>
+            <td>119</td>
+            <td>98</td>
+            
+          </tr>
+          <tr>
+            <td><strong>Viscosidade @ 100°C, cSt</strong></td>
+            <td>16,7</td>
+            <td>27,15</td>
+            
+          </tr>
+          <tr>
+            <td><strong>Corrosão em lâmina de cobre, ASTM D130</strong></td>
+            <td>1B</td>
+            <td>1B</td>
+            
+          </tr>
+          <tr>
+            <td><strong>Teste de estabilidade a oxidação L-60</strong></td>
+            <td>Passa</td>
+            <td>Passa</td>
+            
+          </tr>
+          <tr>
+            <td><strong>Timken OK Load, lb</strong></td>
+            <td>60</td>
+            <td>60</td>
+            <
+          </tr>
+          <tr>
+            <td><strong>4-Ball, força de película lubrificante (carga de solda), kg</strong></td>
+            <td>315</td>
+            <td>400</td>
+            
+          </tr>
+          <tr>
+            <td><strong>4-Ball, Índice de Carga de Desgaste</strong></td>
+            <td>57</td>
+            <td>69</td>
+            
+          </tr>
+          <tr>
+            <td><strong>4-Ball, diâmetro de marca, mm</strong></td>
+            <td>0,28</td>
+            <td>0,28</td>
+            
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="container-flex" style="font-size: 5px; margin: 10px 0;">
+      <!-- Caixa da Esquerda -->
+      <div class="caixa caixa-branca" style="text-align: justify; font-size: 15px; margin: 10px 0;">
+        <ul>
+          <h4 style="text-align: center;"><strong>IDEAL PARA:</strong></h4>
+          <p>Diferenciais, transmissões manuais simples, eixos, divisores de força, trens de engrenagens, caixas de engrenagens, incluindo cilíndricas, cônicas, espirais, helicoidais, planetárias e combinações menos comuns de engrenagens. Pode ser misturado com óleos para engrenagens de base parafínica (GL-5).</p>
+        </ul>
+      </div>
+      
+      <!-- Caixa da Centro -->
+      <div class="caixa caixa-branca" style="text-align: justify; font-size: 15px; margin: 10px 0;">
+        <ul>
+          <h4 style="text-align: center;"><strong>NÃO UTILIZAR EM:</strong></h4>
+          <p>Transmissões automáticas, fluido universal C-3, transmissões combinadas. Transmissões de caminhões que somente permitem o uso de óleo GL-1 ou óleo de motor, para transmissões Spicer/Dana ou Fuller ou qualquer equipamento para os quais o fabricante não recomenda esse tipo de lubrificante de engrenagens. Nunca misture com lubrificantes de base asfáltica ou tipo “SCL”.</p>
+        </ul>
+      </div>
+      
+      <!-- Caixa da Direita -->
+      <div class="caixa caixa-branca" style="text-align: justify; font-size: 15px; margin: 10px 0;">
+        <ul>
+          <h4 style="text-align: center;"><strong>INDÚSTRIAS E CLIENTES</strong></h4>
+          <li>Agricultura</li>
+          <li>Construção</li>
+          <li>Siderúrgicas</li>
+          <li>Refinarias</li>
+          <li>Processadoras de alimentos</li>
+          <li>Plantas químicas</li>
+          <li>Manufaturas industriais</li>
+          <li>Mineradoras</li>
+        </ul>
+      </div>
+    </div>
 
     <br>
     <a href="https://wa.me/5543988428240?text=Olá!%20Gostaria%20de%20solicitar%20uma%20cotação/visita%20para%20o%20CERTOP%2080W90%20/%2085W140." class="btn-wsp" target="_blank">Pedir Cotação / Agendar Visita pelo WhatsApp</a>
+  </div>
+  
+  <!-- Rodapé do Site -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h3>Bemhes Representação</h3>
+      <p>Soluções e aditivos de alta performance para o setor rodoviário, agrícola e industrial.</p>
+    </div>
+    
+    <div class="footer-col">
+      <h4>Links Rápidos</h4>
+      <ul>
+        <li><a href="index.htm#catalago">&larr; Página Inicial / Catálogo</a></li>
+        <li><a href="https://wa.me/5543988428240?text=Olá!%20Gostaria%20de%20falar%20com%20o%20suporte." target="_blank">Contato via WhatsApp</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <p>📱 WhatsApp: (43) 98842-8240</p>
+      <p>📍 Maringa e Região</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 Bemhes Representação. Todos os direitos reservados.</p>
   </div>
 </body>
 </html>
